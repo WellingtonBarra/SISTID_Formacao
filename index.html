@@ -4,157 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#103528">
-  <title>SISTID — Formação</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Protótipo acadêmico do Módulo 3 de Formação do SISTID.">
+  <title>SISTID — Formação e Percursos Formativos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação do SISTID">
       <div class="brand">
         <img class="brand-logo" src="logo-sistid.png" alt="SISTID — Sistema de Inteligência Socioterritorial das Terras Indígenas Desintrusadas">
-        <button class="mobile-close" id="closeSidebar" aria-label="Fechar menu">×</button>
+        <button class="mobile-close" id="closeSidebar" type="button" aria-label="Fechar menu">×</button>
       </div>
-      <div class="program-chip"></span> FORMAÇÃO</div>
+      <div class="program-chip"><span class="chip-lines" aria-hidden="true"></span> MÓDULO 3 · FORMAÇÃO</div>
       <div class="profile-mini">
-        <div class="avatar">BB</div>
-        <div><strong>Bianca Brícia</strong><small>Professor</small></div>
-        <span class="online-dot"></span>
+        <div class="avatar" id="profileAvatar" aria-hidden="true">GP</div>
+        <div><strong id="profileName">Gestor pedagógico</strong><small id="profileRole">Gestor pedagógico</small></div>
+        <span class="online-dot" id="connectionDot" title="Estado da conexão"></span>
       </div>
       <nav class="nav-menu" aria-label="Menu principal">
-        <button class="nav-parent" type="button"><span class="nav-icon">⌂</span><span class="nav-parent-label">Painel Principal</span></button>
-
-        <button class="nav-parent" type="button" data-submenu="territorial" aria-expanded="false"><span class="nav-icon">▤</span><span class="nav-parent-label">Base Territorial</span><span class="nav-chevron">˅</span></button>
-        <div class="nav-submenu" id="submenu-territorial" hidden>
-          <button class="nav-subitem" type="button">Terras Indígenas</button>
-          <button class="nav-subitem" type="button">Comunidades</button>
-        </div>
-
-        <button class="nav-parent" type="button" data-submenu="governanca" aria-expanded="false"><span class="nav-icon">♙</span><span class="nav-parent-label">Governança Institucional</span><span class="nav-chevron">˅</span></button>
-        <div class="nav-submenu" id="submenu-governanca" hidden>
-          <button class="nav-subitem" type="button">Instituições</button>
-          <button class="nav-subitem" type="button">Instâncias de Governança</button>
-        </div>
-
-        <button class="nav-parent" type="button" data-submenu="etnozoneamento" aria-expanded="false"><span class="nav-icon">◫</span><span class="nav-parent-label">Etnozoneamento</span><span class="nav-chevron">˅</span></button>
-        <div class="nav-submenu" id="submenu-etnozoneamento" hidden>
-          <button class="nav-subitem" type="button">2.1 Ecológico e Ambiental</button>
-          <button class="nav-subitem" type="button">2.2 Econômico e Produção</button>
-          <button class="nav-subitem" type="button">2.3 Socioterritorial e Social</button>
-          <button class="nav-subitem" type="button">2.4 Gestão Ambiental e Territorial</button>
-          <button class="nav-subitem" type="button">2.5 Patrimônio Cultural</button>
-          <button class="nav-subitem" type="button">2.7 Controle Social Indígena</button>
-        </div>
-
-        <button class="nav-parent is-open" type="button" data-submenu="formacao" aria-expanded="true"><span class="nav-icon">◇</span><span class="nav-parent-label">Formação</span><span class="nav-chevron">˅</span></button>
+        <button class="nav-parent" type="button" data-external-module="portal"><span class="nav-icon">⌂</span><span class="nav-parent-label">Painel Principal</span></button>
+        <button class="nav-parent" type="button" data-submenu="territorial" aria-expanded="false" aria-controls="submenu-territorial"><span class="nav-icon">▤</span><span class="nav-parent-label">Base Territorial</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="submenu-territorial" hidden><button class="nav-subitem" type="button" data-external-module="modulo1">Terras Indígenas</button><button class="nav-subitem" type="button" data-external-module="modulo1">Comunidades</button></div>
+        <button class="nav-parent" type="button" data-submenu="governanca" aria-expanded="false" aria-controls="submenu-governanca"><span class="nav-icon">♙</span><span class="nav-parent-label">Governança Institucional</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="submenu-governanca" hidden><button class="nav-subitem" type="button" data-external-module="governanca">Instituições</button><button class="nav-subitem" type="button" data-external-module="governanca">Instâncias de Governança</button></div>
+        <button class="nav-parent" type="button" data-submenu="etnozoneamento" aria-expanded="false" aria-controls="submenu-etnozoneamento"><span class="nav-icon">◫</span><span class="nav-parent-label">Etnozoneamento</span><span class="nav-chevron">⌄</span></button>
+        <div class="nav-submenu" id="submenu-etnozoneamento" hidden><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Ecológico e Ambiental</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Econômico e Produção</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Socioterritorial e Social</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Gestão Ambiental e Territorial</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Patrimônio Cultural</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Controle Social Indígena</button></div>
+        <button class="nav-parent is-open" type="button" data-submenu="formacao" aria-expanded="true" aria-controls="submenu-formacao"><span class="nav-icon">◇</span><span class="nav-parent-label">Formação</span><span class="nav-chevron">⌄</span></button>
         <div class="nav-submenu is-open" id="submenu-formacao">
-          <button class="nav-subitem active" data-view="dashboard">Visão geral</button>
-          <button class="nav-subitem" data-view="courses">Cursos</button>
-          <button class="nav-subitem" data-view="materials">Materiais</button>
-          <button class="nav-subitem" data-view="participants">Inscrições</button>
-          <button class="nav-subitem" data-view="attendance">Frequência e avaliação</button>
-          <button class="nav-subitem" data-view="reports">Relatórios</button>
-          <button class="nav-subitem" data-view="messages">Solicitações</button>
-          <button class="nav-subitem" data-view="history">Histórico de cursos</button>
+          <button class="nav-subitem active" type="button" data-view="dashboard">Visão geral</button>
+          <button class="nav-subitem" type="button" data-view="courses">Cursos</button>
+          <button class="nav-subitem" type="button" data-view="trails">Trilhas formativas</button>
+          <button class="nav-subitem" type="button" data-view="materials">Materiais didáticos</button>
+          <button class="nav-subitem" type="button" data-view="consents">Consentimento comunitário</button>
+          <button class="nav-subitem" type="button" data-view="classes">Turmas e encontros</button>
+          <button class="nav-subitem" type="button" data-view="enrollments">Inscrições</button>
+          <button class="nav-subitem" type="button" data-view="attendance">Frequência</button>
+          <button class="nav-subitem" type="button" data-view="assessments">Avaliações</button>
+          <button class="nav-subitem" type="button" data-view="journeys">Percursos formativos</button>
+          <button class="nav-subitem" type="button" data-view="certificates">Certificados</button>
+          <button class="nav-subitem" type="button" data-view="reports">Relatórios</button>
+          <button class="nav-subitem" type="button" data-view="notifications">Notificações</button>
+          <button class="nav-subitem" type="button" data-view="sync">Sincronização offline</button>
         </div>
-
-        <button class="nav-parent" type="button"><span class="nav-icon">⌕</span><span class="nav-parent-label">Pesquisa e Dados</span><span class="nav-chevron">˅</span></button>
-        <button class="nav-parent" type="button"><span class="nav-icon">⌁</span><span class="nav-parent-label">Monitoramento</span><span class="nav-chevron">˅</span></button>
-        <button class="nav-parent" type="button"><span class="nav-icon">▧</span><span class="nav-parent-label">Comunicação</span><span class="nav-chevron">˅</span></button>
-        <button class="nav-parent" type="button"><span class="nav-icon">▣</span><span class="nav-parent-label">Gestão Documental</span><span class="nav-chevron">˅</span></button>
-        <button class="nav-parent" type="button"><span class="nav-icon">⚙</span><span class="nav-parent-label">Administração Sistema</span><span class="nav-chevron">˅</span></button>
-        <div class="sidebar-bottom">
-          <div class="side-pattern" aria-hidden="true"></div>
-          <p>Formação, território e conhecimento.</p>
-          <small>SISTID · FORMAÇÃO</small>
-        </div>
+        <button class="nav-parent" type="button" data-external-module="pesquisa"><span class="nav-icon">⌕</span><span class="nav-parent-label">Pesquisa e Dados</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo5"><span class="nav-icon">⌁</span><span class="nav-parent-label">Monitoramento</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo6"><span class="nav-icon">▧</span><span class="nav-parent-label">Comunicação</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo7"><span class="nav-icon">▣</span><span class="nav-parent-label">Gestão Documental</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo1"><span class="nav-icon">⚙</span><span class="nav-parent-label">Administração do Sistema</span></button>
+        <div class="sidebar-bottom"><div class="side-pattern" aria-hidden="true"></div><p>Formação, território e conhecimento.</p><small>SISTID · PROGRAMA ENRAIZANDO A POSSE PLENA</small></div>
       </nav>
     </aside>
 
-    <main class="main-area">
+    <main class="main-area" id="main">
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="sidebar">☰</button>
         <div class="breadcrumb">Formação <span>/</span> <strong id="crumb">Visão geral</strong></div>
         <div class="top-actions">
-          <button class="icon-button" id="notificationBtn" aria-label="Notificações">♧<i></i></button>
-          <div class="top-user"><div class="avatar avatar-small">BB</div><div><strong>Bianca</strong><small>Professor</small></div><span class="chevron">˅</span></div>
+          <span class="connection-indicator" id="connectionStatus" aria-live="polite">Modo demonstrativo</span>
+          <button class="icon-button" id="notificationBtn" type="button" aria-label="Ver notificações">♧<i aria-hidden="true"></i></button>
+          <div class="top-user"><div class="avatar avatar-small" id="topAvatar">GP</div><div><strong id="topName">Gestor</strong><small id="topRole">Gestor pedagógico</small></div></div>
         </div>
       </header>
-
-      <section class="page-content" id="pageContent">
-        <div class="welcome-row">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-line"></span> ÁREA DE FORMAÇÃO</p>
-            <h1>Bom dia, Bianca<span class="hello-dot">.</span></h1>
-            <p class="subheading">Acompanhe suas formações e continue fortalecendo saberes.</p>
-          </div>
-          <button class="primary-button" id="newCourseBtn"><span>＋</span> Propor novo curso</button>
-        </div>
-
-        <div class="notice-bar">
-          <div class="notice-symbol">i</div>
-          <div><strong>Seu espaço de formação</strong><p>Organize cursos, acompanhe participantes e mantenha os registros pedagógicos atualizados.</p></div>
-          <button class="notice-dismiss" aria-label="Fechar aviso" id="dismissNotice">×</button>
-        </div>
-
-        <div class="stats-grid">
-          <article class="stat-card"><div class="stat-top"><span>Cursos sob sua responsabilidade</span><span class="stat-icon red-icon">▤</span></div><div class="stat-number">03</div><div class="stat-foot"><span class="tiny-dot red-dot"></span> 2 em andamento · 1 aguardando análise</div></article>
-          <article class="stat-card"><div class="stat-top"><span>Participantes ativos</span><span class="stat-icon yellow-icon">♙</span></div><div class="stat-number">42</div><div class="stat-foot"><span class="tiny-dot green-dot"></span> Nas edições em andamento</div></article>
-          <article class="stat-card"><div class="stat-top"><span>Atividades para acompanhar</span><span class="stat-icon blue-icon">▧</span></div><div class="stat-number">08</div><div class="stat-foot">Envios e avaliações pendentes</div></article>
-          <article class="stat-card"><div class="stat-top"><span>Solicitações da coordenação</span><span class="stat-icon pale-icon">▱</span></div><div class="stat-number">02</div><div class="stat-foot"><span class="tiny-dot yellow-dot"></span> Requerem sua atenção</div></article>
-        </div>
-
-        <div class="section-heading">
-          <div><p class="eyebrow">VISÃO GERAL</p><h2>Seus cursos</h2><p class="section-description">Acesse as edições e acompanhe cada etapa da formação.</p></div>
-          <button class="text-button" id="allCoursesBtn">Ver todos os cursos <span>→</span></button>
-        </div>
-
-        <div class="filter-row">
-          <div class="search-wrap"><span>⌕</span><input type="search" id="courseSearch" placeholder="Buscar curso..." aria-label="Buscar curso"></div>
-          <div class="filter-tabs" role="group" aria-label="Filtrar cursos">
-            <button class="filter-tab selected" data-filter="todos">Todos <span>3</span></button>
-            <button class="filter-tab" data-filter="andamento">Em andamento <span>2</span></button>
-            <button class="filter-tab" data-filter="analise">Em análise <span>1</span></button>
-          </div>
-        </div>
-
-        <div class="courses-grid" id="coursesGrid"></div>
-
-        <div class="bottom-grid">
-          <section class="panel participant-panel">
-            <div class="panel-heading"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Participantes recentes</h2></div><button class="subtle-link" id="viewParticipants">Ver lista completa →</button></div>
-            <div class="participant-list" id="recentParticipants"></div>
-          </section>
-          <section class="panel tasks-panel">
-            <div class="panel-heading"><div><p class="eyebrow">PRÓXIMAS AÇÕES</p><h2>Para você acompanhar</h2></div><span class="task-count">02</span></div>
-            <button class="task-item" data-view="messages"><span class="task-icon task-red">!</span><span class="task-copy"><strong>Solicitação de esclarecimento</strong><small>Coordenação · Curso de Agricultura Sustentável</small></span><span class="task-arrow">→</span></button>
-            <button class="task-item" data-view="attendance"><span class="task-icon task-yellow">✓</span><span class="task-copy"><strong>Conferir registros de frequência</strong><small>Inclusão Digital · 2ª edição</small></span><span class="task-arrow">→</span></button>
-            <div class="task-note"><span>✳</span> Os alertas apoiam sua análise. As decisões pedagógicas continuam sob responsabilidade do professor.</div>
-          </section>
-        </div>
-        <footer class="footer"><span>PROGRAMA ENRAIZANDO A POSSE PLENA</span><span>Sistema de Inteligência Socioterritorial <b>·</b> Formação</span></footer>
+      <section class="page-content" id="pageContent" aria-live="polite">
+        <div class="welcome-row"><div><p class="eyebrow"><span class="eyebrow-line"></span> MÓDULO 3 · FORMAÇÃO</p><h1>Visão geral<span class="hello-dot">.</span></h1><p class="subheading">Cursos, trilhas, turmas e percursos formativos em um só lugar.</p></div><button class="primary-button" type="button" data-action="new-course"><span>＋</span> Cadastrar curso</button></div>
+        <div class="notice-bar" id="demoNotice"><div class="notice-symbol">i</div><div><strong>Protótipo acadêmico do SISTID</strong><p>Os dados exibidos são fictícios. As ações demonstram as regras do Módulo 3 e não substituem os serviços oficiais dos demais módulos.</p></div><button class="notice-dismiss" type="button" data-action="dismiss-notice" aria-label="Fechar aviso">×</button></div>
+        <div class="stats-grid" id="dashboardStats" aria-label="Indicadores das formações"></div>
+        <div class="section-heading"><div><p class="eyebrow">CATÁLOGO</p><h2>Cursos e trilhas</h2><p class="section-description">Consulte ofertas e acompanhe a situação dos cursos.</p></div><button class="text-button" type="button" data-view="courses">Ver cursos <span>→</span></button></div>
+        <div class="filter-row"><div class="search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="courseSearch" placeholder="Buscar cursos..." aria-label="Buscar cursos"></div><div class="filter-tabs" role="group" aria-label="Filtrar cursos"><button class="filter-tab selected" type="button" data-filter="todos">Todos</button><button class="filter-tab" type="button" data-filter="Ativo">Ativos</button><button class="filter-tab" type="button" data-filter="Em revisão">Em revisão</button><button class="filter-tab" type="button" data-filter="Encerrado">Encerrados</button></div></div>
+        <div class="courses-grid dashboard-courses-grid" id="coursesGrid"></div>
+        <div class="bottom-grid"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Percursos recentes</h2></div><button class="subtle-link" type="button" data-view="journeys">Ver percursos →</button></div><div class="participant-list" id="recentParticipants"></div></section><section class="panel"><div class="panel-heading"><div><p class="eyebrow">PRÓXIMAS AÇÕES</p><h2>Pendências do módulo</h2></div><span class="task-count" id="taskCount">0</span></div><div id="dashboardTasks"></div></section></div>
+        <footer class="footer"><span>PROGRAMA ENRAIZANDO A POSSE PLENA</span><span>SISTID · Formação e percursos formativos</span></footer>
       </section>
     </main>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="modal-backdrop" id="modalBackdrop">
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
-      <p class="eyebrow">NOVA PROPOSTA</p><h2 id="modalTitle">Propor um curso</h2>
-      <p class="modal-intro">Preencha os dados iniciais da formação. A proposta ficará em análise até a decisão da coordenação.</p>
-      <form id="courseForm">
-        <label for="courseName">Nome do curso <span>*</span></label><input id="courseName" name="courseName" required placeholder="Ex.: Introdução à agricultura sustentável">
-        <label for="courseArea">Área de interesse</label><select id="courseArea" name="courseArea"><option>Agricultura</option><option>Tecnologia</option><option>Educação</option><option>Outra área</option></select>
-        <label for="courseLocation">Local de realização</label><input id="courseLocation" name="courseLocation" placeholder="Comunidade, território ou município">
-        <label for="courseCapacity">Capacidade prevista</label><input id="courseCapacity" name="courseCapacity" type="number" min="1" max="500" value="20">
-        <label for="courseReason">Justificativa</label><textarea id="courseReason" name="courseReason" rows="3" placeholder="Conte brevemente o objetivo da formação"></textarea>
-        <div class="modal-foot"><button type="button" class="secondary-button" id="cancelModal">Cancelar</button><button type="submit" class="primary-button">Enviar proposta <span>→</span></button></div>
-      </form>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fechar janela">×</button>
+      <p class="eyebrow" id="modalEyebrow">CADASTRO</p>
+      <h2 id="modalTitle">Novo registro</h2>
+      <p class="modal-intro" id="modalIntro"></p>
+      <form id="dynamicForm"><div id="modalFields"></div><div class="modal-foot"><button type="button" class="secondary-button" id="cancelModal">Cancelar</button><button type="submit" class="primary-button" id="modalSubmit">Salvar</button></div></form>
     </section>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
