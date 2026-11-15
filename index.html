@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#103528">
+  <meta name="description" content="Protótipo acadêmico do Módulo 3 de Formação do SISTID.">
+  <title>SISTID — Formação e Percursos Formativos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="sidebar-host" id="sidebar" aria-label="Menu lateral persistente">
+      <iframe id="sidebarFrame" title="Navegação do SISTID" src="sidebar.html"></iframe>
+    </div>
+    <button class="sidebar-scrim" id="sidebarScrim" type="button" aria-label="Fechar menu lateral" hidden></button>
+
+    <main class="main-area" id="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="sidebar"><span class="material-symbols-rounded">menu</span></button>
+        <div class="breadcrumb">Formação <span>/</span> <strong id="crumb">Visão geral</strong></div>
+        <div class="top-actions">
+          <span class="connection-indicator" id="connectionStatus" aria-live="polite">Modo demonstrativo</span>
+          <button class="icon-button" id="notificationBtn" type="button" aria-label="Ver notificações"><span class="material-symbols-rounded">notifications</span><i aria-hidden="true"></i></button>
+          <div class="profile-switcher" id="profileSwitcher"><button id="profileButton" class="profile-button" type="button" aria-label="Alternar perfil demonstrativo" aria-haspopup="true" aria-expanded="false" aria-controls="profileMenu"><span class="avatar avatar-small" id="topAvatar">GP</span><span class="profile-identity"><strong id="topName">Gestor</strong><small id="topRole">Gestor pedagógico</small></span><span class="material-symbols-rounded switch-chevron">expand_more</span></button><div id="profileMenu" class="profile-menu" role="menu" hidden><div class="profile-menu-heading">Simulação de perfis</div><button type="button" role="menuitemradio" data-role="gestor">Gestor pedagógico</button><button type="button" role="menuitemradio" data-role="facilitador">Facilitador / professor</button><button type="button" role="menuitemradio" data-role="participante">Participante indígena</button><button type="button" role="menuitemradio" data-role="lideranca">Liderança comunitária</button><button type="button" role="menuitemradio" data-role="administrador">Administrador do SISTID</button><small class="profile-menu-disclaimer">Perfis simulados — sem autenticação real.</small></div></div>
+        </div>
+      </header>
+      <section class="page-content" id="pageContent" aria-live="polite">
+        <div class="welcome-row"><div><p class="eyebrow"><span class="eyebrow-line"></span> MÓDULO 3 · FORMAÇÃO</p><h1>Visão geral<span class="hello-dot">.</span></h1><p class="subheading">Cursos, trilhas, turmas e percursos formativos em um só lugar.</p></div><button class="primary-button" type="button" data-action="new-course"><span>＋</span> Cadastrar curso</button></div>
+        <div class="stats-grid" id="dashboardStats" aria-label="Indicadores das formações"></div>
+        <div class="section-heading"><div><p class="eyebrow">CATÁLOGO</p><h2>Cursos e trilhas</h2><p class="section-description">Consulte ofertas e acompanhe a situação dos cursos.</p></div><button class="text-button" type="button" data-view="courses">Ver cursos <span>→</span></button></div>
+        <div class="filter-row"><div class="search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="courseSearch" placeholder="Buscar cursos..." aria-label="Buscar cursos"></div><div class="filter-tabs" role="group" aria-label="Filtrar cursos"><button class="filter-tab selected" type="button" data-filter="todos">Todos</button><button class="filter-tab" type="button" data-filter="Ativo">Ativos</button><button class="filter-tab" type="button" data-filter="Em revisão">Em revisão</button><button class="filter-tab" type="button" data-filter="Encerrado">Encerrados</button></div></div>
+        <div class="courses-grid dashboard-courses-grid" id="coursesGrid"></div>
+        <div class="bottom-grid"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Percursos recentes</h2></div><button class="subtle-link" type="button" data-view="journeys">Ver percursos →</button></div><div class="participant-list" id="recentParticipants"></div></section><section class="panel"><div class="panel-heading"><div><p class="eyebrow">PRÓXIMAS AÇÕES</p><h2>Pendências do módulo</h2></div><span class="task-count" id="taskCount">0</span></div><div id="dashboardTasks"></div></section></div>
+        <footer class="footer"><span>PROGRAMA ENRAIZANDO A POSSE PLENA</span><span>SISTID · Formação e percursos formativos</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fechar janela">×</button>
+      <p class="eyebrow" id="modalEyebrow">CADASTRO</p>
+      <h2 id="modalTitle">Novo registro</h2>
+      <p class="modal-intro" id="modalIntro"></p>
+      <form id="dynamicForm"><div id="modalFields"></div><div class="modal-foot"><button type="button" class="secondary-button" id="cancelModal">Cancelar</button><button type="submit" class="primary-button" id="modalSubmit">Salvar</button></div></form>
+    </section>
+  </div>
+</body>
+</html>

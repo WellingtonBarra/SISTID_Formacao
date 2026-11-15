@@ -1,0 +1,43 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SISTID — Menu</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet"><link rel="stylesheet" href="style.css"><style>html,body{height:100%;margin:0;background:#103528;overflow:hidden}.sidebar{width:100%!important;min-width:0!important;height:100dvh;position:relative!important;left:auto!important;box-shadow:none!important;transition:none!important}.mobile-close{display:none!important}body.mobile-layout .mobile-close{display:grid!important;place-items:center!important}.nav-icon .material-symbols-rounded{font-size:19px}.nav-chevron .material-symbols-rounded{font-size:18px}.profile-mini{min-width:0}.profile-mini>div:nth-child(2){min-width:0}.profile-mini strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style></head><body>    <aside class="sidebar" id="sidebar" aria-label="Navegação do SISTID">
+      <div class="brand">
+        <img class="brand-logo" src="logo-sistid.png" alt="SISTID — Sistema de Inteligência Socioterritorial das Terras Indígenas Desintrusadas">
+        <button class="mobile-close" id="closeSidebar" type="button" aria-label="Fechar menu"><span class="material-symbols-rounded">close</span></button>
+      </div>
+      <div class="profile-mini">
+        <div class="avatar" id="profileAvatar" aria-hidden="true">GP</div>
+        <div><strong id="profileName">Gestor pedagógico</strong><small id="profileRole">Gestor pedagógico</small></div>
+        <span class="online-dot" id="connectionDot" title="Estado da conexão"></span>
+      </div>
+      <nav class="nav-menu" aria-label="Menu principal">
+        <button class="nav-parent" type="button" data-external-module="portal"><span class="nav-icon"><span class="material-symbols-rounded">home</span></span><span class="nav-parent-label">Painel Principal</span></button>
+        <button class="nav-parent" type="button" data-submenu="territorial" aria-expanded="false" aria-controls="submenu-territorial"><span class="nav-icon"><span class="material-symbols-rounded">map</span></span><span class="nav-parent-label">Base Territorial</span><span class="nav-chevron"><span class="material-symbols-rounded">expand_more</span></span></button>
+        <div class="nav-submenu" id="submenu-territorial" hidden><button class="nav-subitem" type="button" data-external-module="modulo1">Terras Indígenas</button><button class="nav-subitem" type="button" data-external-module="modulo1">Comunidades</button></div>
+        <button class="nav-parent" type="button" data-submenu="governanca" aria-expanded="false" aria-controls="submenu-governanca"><span class="nav-icon"><span class="material-symbols-rounded">account_balance</span></span><span class="nav-parent-label">Governança Institucional</span><span class="nav-chevron"><span class="material-symbols-rounded">expand_more</span></span></button>
+        <div class="nav-submenu" id="submenu-governanca" hidden><button class="nav-subitem" type="button" data-external-module="governanca">Instituições</button><button class="nav-subitem" type="button" data-external-module="governanca">Instâncias de Governança</button></div>
+        <button class="nav-parent" type="button" data-submenu="etnozoneamento" aria-expanded="false" aria-controls="submenu-etnozoneamento"><span class="nav-icon"><span class="material-symbols-rounded">layers</span></span><span class="nav-parent-label">Etnozoneamento</span><span class="nav-chevron"><span class="material-symbols-rounded">expand_more</span></span></button>
+        <div class="nav-submenu" id="submenu-etnozoneamento" hidden><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Ecológico e Ambiental</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Econômico e Produção</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Socioterritorial e Social</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Gestão Ambiental e Territorial</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Patrimônio Cultural</button><button class="nav-subitem" type="button" data-external-module="etnozoneamento">Controle Social Indígena</button></div>
+        <button class="nav-parent is-open" type="button" data-submenu="formacao" aria-expanded="true" aria-controls="submenu-formacao"><span class="nav-icon"><span class="material-symbols-rounded">school</span></span><span class="nav-parent-label">Formação</span><span class="nav-chevron"><span class="material-symbols-rounded">expand_more</span></span></button>
+        <div class="nav-submenu is-open" id="submenu-formacao">
+          <button class="nav-subitem active" type="button" data-view="dashboard">Visão geral</button>
+          <button class="nav-subitem" type="button" data-view="courses">Cursos</button>
+          <button class="nav-subitem" type="button" data-view="trails">Trilhas formativas</button>
+          <button class="nav-subitem" type="button" data-view="materials">Materiais didáticos</button>
+          <button class="nav-subitem" type="button" data-view="consents">Consentimento comunitário</button>
+          <button class="nav-subitem" type="button" data-view="classes">Turmas e encontros</button>
+          <button class="nav-subitem" type="button" data-view="enrollments">Inscrições</button>
+          <button class="nav-subitem" type="button" data-view="attendance">Frequência</button>
+          <button class="nav-subitem" type="button" data-view="assessments">Avaliações</button>
+          <button class="nav-subitem" type="button" data-view="journeys">Percursos formativos</button>
+          <button class="nav-subitem" type="button" data-view="certificates">Certificados</button>
+          <button class="nav-subitem" type="button" data-view="reports">Relatórios</button>
+          <button class="nav-subitem" type="button" data-view="notifications">Notificações</button>
+          <button class="nav-subitem" type="button" data-view="sync">Sincronização offline</button>
+        </div>
+        <button class="nav-parent" type="button" data-external-module="pesquisa"><span class="nav-icon"><span class="material-symbols-rounded">search</span></span><span class="nav-parent-label">Pesquisa e Dados</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo5"><span class="nav-icon"><span class="material-symbols-rounded">monitoring</span></span><span class="nav-parent-label">Monitoramento</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo6"><span class="nav-icon"><span class="material-symbols-rounded">campaign</span></span><span class="nav-parent-label">Comunicação</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo7"><span class="nav-icon"><span class="material-symbols-rounded">folder_open</span></span><span class="nav-parent-label">Gestão Documental</span></button>
+        <button class="nav-parent" type="button" data-external-module="modulo1"><span class="nav-icon"><span class="material-symbols-rounded">settings</span></span><span class="nav-parent-label">Administração do Sistema</span></button>
+        <div class="sidebar-bottom"><div class="side-pattern" aria-hidden="true"></div><p>Formação, território e conhecimento.</p><small>SISTID · PROGRAMA ENRAIZANDO A POSSE PLENA</small></div>
+      </nav>
+    </aside><script src="sidebar.js"></script></body></html>
